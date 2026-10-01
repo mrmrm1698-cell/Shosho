@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shosho Birthday ❤️</title>
     <style>
+        * { box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #ffffff;
             font-family: 'Tahoma', sans-serif;
             text-align: center;
@@ -18,66 +19,71 @@
             justify-content: center;
             align-items: center;
         }
-        /* شاشة كلمة السر */
+        /* شاشة كلمة السر الفخمة */
         #lock-screen {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
-            padding: 40px 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            padding: 40px 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             max-width: 380px;
             width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         #lock-screen input {
-            width: 80%;
-            padding: 12px;
-            margin-top: 15px;
-            border-radius: 20px;
+            width: 85%;
+            padding: 14px;
+            margin-top: 20px;
+            border-radius: 25px;
             border: none;
             text-align: center;
             font-size: 16px;
             outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
         }
         #lock-screen button {
-            margin-top: 15px;
-            background: #ff4081;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ff4081, #ff7eb3);
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
+            padding: 12px 30px;
+            border-radius: 25px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+            transition: 0.3s;
         }
+        #lock-screen button:hover { transform: scale(1.05); }
+
         /* محتوى الموقع الأساسي */
         .card {
             display: none;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            padding: 30px 20px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 450px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 35px 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            max-width: 460px;
             width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             margin-bottom: 70px;
         }
         h1 {
-            color: #ff4081;
+            color: #ff7eb3;
             font-size: 26px;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
         .photo-container {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 15px auto;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px auto;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid #ff4081;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border: 4px solid #ff4081;
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.5);
         }
         .photo-container img {
             width: 100%;
@@ -85,20 +91,25 @@
             object-fit: cover;
         }
         .counter {
-            font-size: 15px;
+            font-size: 14px;
             color: #ffeb3b;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 8px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 235, 59, 0.3);
         }
-        p {
+        /* تصميم النص المتحرك */
+        .typing-text {
             font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            white-space: pre-line;
+            line-height: 1.9;
             text-align: right;
+            white-space: pre-wrap;
+            color: #f1f1f1;
+            border-left: 2px solid #ff4081;
+            padding-right: 5px;
+            min-height: 180px;
         }
     </style>
 </head>
@@ -107,39 +118,40 @@
     <!-- شاشة كلمة السر -->
     <div id="lock-screen">
         <h2>🔒 أدخلي كلمة السر</h2>
-        <p style="font-size: 14px; text-align: center; margin-bottom: 10px;">اكتبي اسم "شهد" عشان الصفحة تفتح</p>
+        <p style="font-size: 13px; margin-top: 8px; color: #ccc;">اكتبي اسم "شهد" عشان الصفحة تفتح</p>
         <input type="password" id="password-input" placeholder="كلمة السر...">
         <br>
-        <button onclick="checkPassword()">دخول ❤️️</button>
+        <button onclick="checkPassword()">دخول ❤</button>
     </div>
 
     <!-- محتوى الموقع -->
     <div class="card" id="main-content">
-        <!-- الصورة -->
+        <!-- الصورة (تأكدي أن اسم صورتك في الريبو photo.jpg أو غيري الاسم هنا ليطابق صورتك) -->
         <div class="photo-container">
             <img src="photo.jpg" alt="Shosho">
         </div>
 
         <h1>عيد ميلاد سعيد يا شهد! 🎉</h1>
         
-        <!-- عداد الوقت من 2023 -->
-        <div class="counter" id="time-counter">جاري حساب الذكريات...</div>
+        <!-- عداد الوقت -->
+        <div class="counter" id="time-counter">⏳ جاري حساب الذكريات...</div>
 
-        <!-- نص الرسالة المطلوب -->
-        <p>كل سنه وانتي طيبه يعمري وعقبال مليون سنه حلوه ويارب نعقل ونخف العبط ده شويه ماشي 😂 
-مش فاهمه انا كبرتي ازاي يعني بسرعه كده أن عقلك اصغر من سنك اصلا 😂 عارفه هزعلك انتي والله علي اللي بتعملي ده بس ربنا يصلح حالك والله يعني 😂♥️ 
-المهم بقي 😂 
-كل سنه وانتي معايا ودايما مع بعض كده اه بقينا بعيد شويه عن بعض بس غلاوتك هتفضل زي ما هي عندي انتي عشرت سنين مش يوم ولا اتنين وهتفضلي اغلي واحده عندي مهما حصل بينا اصلا ويارب تكون سنه مليانه تعويضات وربنا يبعد عنك اي حاجه وحشه واي حد وحش ويفرح قلبك ب اللي انتي بتتمني يارب واشوفك احلي عروسه في الدنيا دي كلها كل سنه وانتي معايا يعمري 🌚🫂♥️♥️♥️</p>
+        <!-- النص المتحرك -->
+        <div class="typing-text" id="typed-message"></div>
     </div>
 
-    <!-- عنصر الصوت والأغنية -->
+    <!-- عنصر الصوت -->
     <audio id="bgSong" src="song.mp3" preload="auto" loop></audio>
 
     <!-- زرار التشغيل الثابت -->
-    <button id="play-btn" onclick="playAudio()" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:99999; background:#ff4081; color:white; padding:12px 25px; border:none; border-radius:30px; font-weight:bold; font-size:16px; cursor:pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">تشغيل الأغنية 🎵</button>
+    <button id="play-btn" onclick="playAudio()" style="display:none; position:fixed; bottom:25px; left:50%; transform:translateX(-50%); z-index:99999; background:linear-gradient(135deg, #ff4081, #ff7eb3); color:white; padding:12px 28px; border:none; border-radius:30px; font-weight:bold; font-size:16px; cursor:pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">تشغيل الأغنية 🎵</button>
 
     <script>
-        // التحقق من كلمة السر
+        const messageText = `كل سنه وانتي طيبه يعمري وعقبال مليون سنه حلوه ويارب نعقل ونخف العبط ده شويه ماشي 😂 
+مش فاهمه انا كبرتي ازاي يعني بسرعه كده أن عقلك اصغر من سنك اصلا 😂 عارفه هزعلك انتي والله علي اللي بتعملي ده بس ربنا يصلح حالك والله يعني 😂♥️ 
+المهم بقي 😂 
+كل سنه وانتي معايا ودايما مع بعض كده اه بقينا بعيد شويه عن بعض بس غلاوتك هتفضل زي ما هي عندي انتي عشرت سنين مش يوم ولا اتنين وهتفضلي اغلي واحده عندي مهما حصل بينا اصلا ويارب تكون سنه مليانه تعويضات وربنا يبعد عنك اي حاجه وحشه واي حد وحش ويفرح قلبك ب اللي انتي بتتمني يارب واشوفك احلي عروسه في الدنيا دي كلها كل سنه وانتي معايا يعمري 🌚🫂♥️♥️♥️️`;
+
         function checkPassword() {
             var pass = document.getElementById("password-input").value.trim();
             if (pass === "شهد") {
@@ -147,18 +159,17 @@
                 document.getElementById("main-content").style.display = "block";
                 document.getElementById("play-btn").style.display = "block";
                 startCounter();
+                startTypingEffect();
             } else {
                 alert("كلمة السر غلط يا مارينا، اكتبي 'شهد' صح!");
             }
         }
 
-        // حساب المدة من 2023
         function startCounter() {
-            const startDate = new Date("2023-01-01T00:00:00"); // اضبطي تاريخ بدايتكم لو حابة يوم محدد بـ 2023
+            const startDate = new Date("2023-01-01T00:00:00");
             setInterval(() => {
                 const now = new Date();
                 const diff = now - startDate;
-                
                 const days = Math.floor(diff / (1000 * 60 * 60 * 24));
                 const years = Math.floor(days / 365);
                 const remainingDays = days % 365;
@@ -167,11 +178,19 @@
             }, 1000);
         }
 
-        // تشغيل الأغنية
+        let i = 0;
+        function startTypingEffect() {
+            if (i < messageText.length) {
+                document.getElementById("typed-message").innerHTML += messageText.charAt(i);
+                i++;
+                setTimeout(startTypingEffect, 35); // سرعة كتابة الحروف
+            }
+        }
+
         function playAudio() {
             var audio = document.getElementById("bgSong");
             audio.play().then(() => {
-                document.getElementById("play-btn").style.display = "none"; // يختفي الزرار لما تشتغل
+                document.getElementById("play-btn").style.display = "none";
             }).catch(error => {
                 alert("اضغطي كمان مرة عشان الأغنية تشتغل!");
             });
