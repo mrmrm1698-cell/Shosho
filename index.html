@@ -200,8 +200,9 @@
 <div class="main-container hidden" id="mainCard">
     <div class="main-title">كل سنة وأنتِ جنبي ❤️</div>
 
+    <!-- صورتكم اللي رفعتيها -->
     <div class="photo-frame" onclick="showMainSurprise()" title="اضغطي هنا لتشوفي الرسالة!">
-        <img src="https://i.ibb.co/3ykJ53B3/photo.jpg" alt="صورة شهد ومارينا">
+        <img src="https://i.ibb.co/v6Jv8xRM/image.jpg" alt="صورة شهد ومارينا">
     </div>
     <div style="font-size: 13px; color: #d81b60; font-weight: bold; cursor: pointer;" onclick="showMainSurprise()">
         (اضغطي على الصورة عشان تظهر الرسالة 👆)
@@ -229,11 +230,11 @@
 
 <div class="music-pill hidden" id="musicPill" onclick="toggleMusic()">
     <span class="music-text">🎶 كل سنة وأنت قلبي</span>
-    <div class="music-btn" id="musicIcon">⏸</div>
+    <div class="music-btn" id="musicIcon">▶</div>
 </div>
 
 <!-- أغنية محمود العسيلي - كل سنة -->
-<audio id="bgSong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+<audio id="bgSong" src="https://archive.org/download/KolSanaElEsseily/Mahmoud%20El%20Esseily%20-%20Kol%20Sana.mp3" preload="auto" loop></audio>
 
 <script>
     function createBalloons() {
@@ -270,7 +271,10 @@
             document.getElementById('musicPill').classList.remove('hidden');
             
             const song = document.getElementById('bgSong');
-            song.play().catch(() => {});
+            song.play().then(() => {
+                document.getElementById('musicIcon').innerText = '⏸';
+            }).catch(() => {});
+            
             startTimer();
         } else {
             alert('الباسورد خطأ يا قمر! اكتبي "شهد" صح.');
